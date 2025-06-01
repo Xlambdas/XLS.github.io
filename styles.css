@@ -1,16 +1,32 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+.in-progress {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    display: inline-block;
+    margin-left: 10px;
+    font-style: italic;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    background: linear-gradient(135deg, #a83232 0%, #5a2323 100%); /* rouge doux mais affirmé */
     min-height: 100vh;
+
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -20,7 +36,7 @@ body {
 }
 
 header {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(168, 50, 50, 0.95); /* rouge doux */
     backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
@@ -40,7 +56,7 @@ nav {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #333;
+    color: #fff;
     text-decoration: none;
 }
 
@@ -52,23 +68,27 @@ nav {
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
+    color: #fff;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #667eea;
+    color: #e57373;
 }
 
 main {
-    margin-top: 80px;
+    flex: 1;
+    padding-top: 80px; /* pour compenser la hauteur de l'en-tête */
+    background: linear-gradient(135deg, rgba(168, 50, 50, 0.9), rgba(90, 35, 35, 0.9)), url('https://source.unsplash.com/1600x900/?nature,forest') no-repeat center center/cover;
+    color: #fff;
+    position: relative;
 }
 
 .hero {
     text-align: center;
     padding: 6rem 0;
-    color: white;
+    color: #fff;
 }
 
 .hero h1 {
@@ -86,37 +106,53 @@ main {
 
 .cta-button {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+    background: rgba(168, 50, 50, 0.7);
+    color: #fff;
     padding: 1rem 2rem;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid #fff;
     animation: fadeInUp 1s ease 0.4s both;
 }
 
 .cta-button:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: #7a2323;
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .section {
     padding: 5rem 0;
-    background: white;
+    background: #fff5f5;
     margin: 2rem 0;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding-left: 32px;
+    padding-right: 32px;
 }
 
 .section h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: #333;
+    color: #a83232;
+}
+
+.section p {
+    text-align: justify;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.section ul {
+    list-style: none;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
 }
 
 .projects-grid {
@@ -127,11 +163,11 @@ main {
 }
 
 .project-card {
-    background: #f8f9fa;
+    background: #fbeaea;
     padding: 2rem;
     border-radius: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #e9ecef;
+    border: 1px solid #a83232;
 }
 
 .project-card:hover {
@@ -140,7 +176,7 @@ main {
 }
 
 .project-card h3 {
-    color: #333;
+    color: #a83232;
     margin-bottom: 1rem;
     font-size: 1.3rem;
 }
@@ -151,17 +187,33 @@ main {
 }
 
 .project-link {
-    color: #667eea;
+    color: #a83232;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .project-link:hover {
-    color: #764ba2;
+    color: #7a2323;
 }
 
+/* .skills {
+  background: linear-gradient(to right, #8b0000, #aa3939);
+  padding: 2rem;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}*/
+
+.skills div {
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-weight: bold;
+} 
+
 .skills {
+    /* background: linear-gradient(to right, #8b0000, #aa3939); */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
@@ -169,8 +221,8 @@ main {
 }
 
 .skill-tag {
-    background: linear-gradient(45deg, #667eea, #764ba2);
-    color: white;
+    background: linear-gradient(to right, #a83232, #5a2323);
+    color: #fff;
     padding: 0.8rem 1.5rem;
     border-radius: 25px;
     text-align: center;
@@ -184,39 +236,68 @@ main {
 
 .contact {
     text-align: center;
-    padding: 3rem 0;
+    padding: 1.2rem 0 0.5rem 0;
 }
 
 .contact-links {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 1rem;
+    margin-top: 1rem;
     flex-wrap: wrap;
 }
 
 .contact-link {
     display: inline-block;
-    background: #333;
-    color: white;
-    padding: 1rem 2rem;
+    background: #a83232;
+    color: #fff;
+    padding: 0.5rem 1.2rem;
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 7px;
     transition: all 0.3s ease;
     font-weight: 600;
+    font-size: 0.95rem;
 }
 
 .contact-link:hover {
-    background: #667eea;
+    background: #7a2323;
     transform: translateY(-2px);
 }
 
 footer {
     text-align: center;
-    padding: 2rem 0;
-    color: white;
+    padding: 1rem 0;
+    color: #fff;
+    background: #5a2323;
     opacity: 0.8;
+    margin-top: auto;
+    font-size: 0.95rem;
 }
+
+
+.sub-link {
+    display: inline-block;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.sub-link span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-left: 5px;
+}
+
+.sub-link:hover {
+    color: #5a2323;
+}
+
+.sub-link:hover span {
+    transform: translateX(5px);
+}
+
 
 @keyframes fadeInUp {
     from {
