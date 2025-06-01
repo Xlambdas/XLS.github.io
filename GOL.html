@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Game of Life - Developer Portfolio</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <nav class="container">
+                <a href="index.html" class="logo">Home</a>
+                <ul class="nav-links">
+                    <li><a href="#idea">The idea</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#bibliography">Bibliography</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <h1>Game of Life</h1>
+                    <p>
+                        More than a plugin — a philosophy. <br>
+                        Track quests, earn levels, and gamify your existence inside Obsidian. <br>
+                        Built for those who seek mastery...
+                    </p>
+                    <a href="#features" class="cta-button">Discover the System</a><br>
+                    <p class="in-progress">Currently in progress...</p><br>
+                    <a href="https://github.com/Xlambdas/Game-of-life-obsi-plugin-" class="sub-link">View more →</a>
+
+                </div>
+            </section>
+
+            <div class="container">
+                <section id="idea" class="section">
+                    <h2>The original idea</h2>
+                    <p>
+                    The idea was born from a simple frustration: feeling like life was slipping by without structure, growth, or meaning. I wanted a way to transform my daily routine into a series of quests, each with its own challenges and rewards. The goal was to create a system that would not only help me stay organized but also inspire me to push my limits and achieve more. <br>
+                    "Game of Life" was created to turn everyday existence into a personal quest for mastery. Inspired by RPG mechanics and self-development philosophy, this system lets you track progress, complete meaningful quests, and level up in real life, you get a visual view of your lifes — all within the powerful environment of Obsidian. It’s not just about productivity. It’s about growth.
+                    </p>
+                </section>
+
+                <section id="features" class="section">
+                    <h2>Features</h2>
+                    <p>
+                    The plugin is designed to be intuitive and powerful, with features that allow you to:
+
+                    <ul>
+                        <li>Track quests and tasks with ease</li>
+                        <li>Earn levels and rewards for completing challenges</li>
+                        <li>Visualize your progress through a dynamic dashboard</li>
+                        <li>Integrate seamlessly with Obsidian’s note-taking capabilities</li>
+                        <li>Customize your experience with themes and settings</li>
+                    </ul>
+                    </p>
+                </section>
+
+                <section id="Use case" class="section">
+                    <h2>Who is it for?</h2>
+                    <p>
+                    Imagine waking up each day with a clear set of quests to tackle. You start with a morning routine quest, then move on to a work-related challenge, and finally, you end the day with a personal growth task. Each completed quest earns you experience points, which contribute to your overall level. As you progress, you unlock new abilities and rewards that enhance your daily life.
+                    </p>
+                    <p>
+                    This plugin is for anyone who wants to take control of their life, whether you’re a student, a professional, or simply someone looking to add more structure and fun to your daily routine. It’s for those who believe that life can be more than just a series of tasks — it can be an epic journey of growth and achievement.
+                    </p>
+                </section>
+
+                <section id="bibliography" class="section">
+                    <h2>Search more about gamification</h2>
+                    <p>
+                    If you want to dive deeper into the world of gamification and its impact on personal development, I highly recommend checking out these resources:
+                    </p>
+                    <div class="skills">
+                        <a class="skill-tag" href="https://en.wikipedia.org/wiki/Gamification">Wikipedia - Gamification</a>
+                        <a class="skill-tag" href="https://www.crunchyroll.com/fr/series/GDKHZEJ0K/solo-leveling">Webtoon - Solo Leveling</a>
+                        <a class="skill-tag" href="https://www.youtube.com/watch?v=M9ZJJmEO91M">YouTube - can games make you lives better ?</a>
+                        <a class="skill-tag" href="https://www.youtube.com/watch?v=J3GtWhvOKJs" target="_blank">Youtube - Gamification in Education</a>
+                    </div>
+                    </section>
+            </div>
+        </main>
+
+        <script>
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.body.insertAdjacentHTML('beforeend', data);
+                })
+                .catch(error => console.error('Error loading footer:', error));
+        </script>
+
+        <div id="footer">
+            <noscript>
+                <footer class="section">
+                    <p>© 2025 GASSIEN Corentin. All rights reserved.</p>
+                </footer>
+            </noscript>
+        </div>
+        <script>
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add scroll effect to header
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.style.background = 'rgba(168, 50, 50, 0.95)';
+                } else {
+                    header.style.background = 'transparent';
+                }
+            });
+
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all project cards and skill tags
+            document.querySelectorAll('.project-card, .skill-tag').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        </script>
+    </body>
+</html>
